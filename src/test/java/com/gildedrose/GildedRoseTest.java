@@ -13,7 +13,7 @@ public class GildedRoseTest {
     @Test
     @Parameters({"10, 8","7, 5"," 1, 0"})
     public void When_ExpiredNormalItemTicks_Expect_QualityDecreasesByTwo(int quality,  int expectedQuality) {
-        Item[] items = new Item[] { new Item("normal", 0, quality) };
+        Item[] items = new Item[] { new NormalItem( 0, quality) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         assertEquals(expectedQuality, app.items[0].quality);
@@ -22,7 +22,7 @@ public class GildedRoseTest {
 
     @Test
     public void When_ExpiredNormalItemWithQuality0Ticks_Expect_QualityRemains0() {
-        Item[] items = new Item[] { new Item("normal", 0, 0) };
+        Item[] items = new Item[] { new NormalItem( 0, 0) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         assertEquals(0, app.items[0].quality);
@@ -32,7 +32,7 @@ public class GildedRoseTest {
     @Test
     @Parameters({"4, 6, 3, 5", "5, 10, 4, 9"})
     public void When_NormalItemTicks_Expect_QualityAndSellInDecreaseByOne(int sellIn, int quality, int expectedSellIn, int expectedQuality) {
-        Item[] items = new Item[] { new Item("normal", sellIn, quality) };
+        Item[] items = new Item[] { new NormalItem(sellIn, quality) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         assertEquals(expectedQuality, app.items[0].quality);

@@ -11,7 +11,7 @@ class GildedRose {
 
         for (Item item : items) {
             if (item.name == "normal") {
-                handleNormal(item);
+                ((NormalItem)item).handle();
             } else if (item.name == "Aged Brie") {
                 handleAgedBrie(item);
             } else if (item.name == "Sulfuras") {
@@ -22,17 +22,7 @@ class GildedRose {
         }
     }
 
-    private void handleNormal(Item item) {
-        if (item.sellIn == 0) {
-            if (item.quality > 1)
-                item.quality -= 2;
-            else
-                item.quality = 0;
-        } else {
-            item.quality -= 1;
-            item.sellIn -= 1;
-        }
-    }
+
 
     private void handleAgedBrie(Item item) {
         if (item.quality < 50)
