@@ -8,7 +8,11 @@ class GildedRose {
     }
 
     public void updateQuality() {
-        items[0].quality = 9;
-        items[0].sellIn = 4;
-    }
+        if (items[0].sellIn == 0){
+            items[0].quality = 8;
+        }else {
+            items[0].quality = 9;
+            items[0].sellIn = 4;
+        }
+        }
 }

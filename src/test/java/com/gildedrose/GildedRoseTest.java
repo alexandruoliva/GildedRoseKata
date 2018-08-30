@@ -24,4 +24,13 @@ public class GildedRoseTest {
         assertEquals(0, app.items[0].sellIn);
     }
 
+    @Test
+    public void When_ExpiredNormalItemWithQuality0Ticks_Expect_QualityRemains0() {
+        Item[] items = new Item[] { new Item("normal", 0, 0) };
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertEquals(0, app.items[0].quality);
+        assertEquals(0, app.items[0].sellIn);
+    }
+
 }
