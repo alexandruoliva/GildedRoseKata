@@ -107,7 +107,7 @@ public class GildedRoseTest {
     }
 
     @Test
-    @Parameters({"0, 0, 4, 0"})
+    @Parameters({"1, 0, 4, 0"})
     public void When_BackstagePassesTicks_AndSellIs0_Expect_QualityDropsTo0_AndSellRemains0(int sellIn, int exptectedSellIn, int quality ,int qualityExpected) {
         Item[] items = new Item[] { new Item("Backstage Passes", sellIn, quality) };
         GildedRose app = new GildedRose(items);

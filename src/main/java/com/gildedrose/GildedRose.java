@@ -38,9 +38,13 @@ class GildedRose {
                 items[0].sellIn -= 1;
                 items[0].quality +=2;
             }
-            else {
+            else if(items[0].sellIn>1){
                 items[0].sellIn -= 1;
                 items[0].quality +=3;
+            }
+            else {
+                items[0].sellIn -= 1;
+                items[0].quality = 0;
             }
         }
     }
