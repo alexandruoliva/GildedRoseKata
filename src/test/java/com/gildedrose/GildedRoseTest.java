@@ -106,4 +106,14 @@ public class GildedRoseTest {
         assertEquals(exptectedSellIn, app.items[0].sellIn);
     }
 
+    @Test
+    @Parameters({"0, 0, 4, 0"})
+    public void When_BackstagePassesTicks_AndSellIs0_Expect_QualityDropsTo0_AndSellRemains0(int sellIn, int exptectedSellIn, int quality ,int qualityExpected) {
+        Item[] items = new Item[] { new Item("Backstage Passes", sellIn, quality) };
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertEquals(qualityExpected, app.items[0].quality);
+        assertEquals(exptectedSellIn, app.items[0].sellIn);
+    }
+
 }
