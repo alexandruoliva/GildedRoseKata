@@ -9,42 +9,43 @@ class GildedRose {
 
     public void updateQuality() {
 
-        if (items[0].name == "normal") {
-            if (items[0].sellIn == 0) {
-                if (items[0].quality > 1)
-                    items[0].quality -= 2;
+        Item item = items[0];
+        if (item.name == "normal") {
+            if (item.sellIn == 0) {
+                if (item.quality > 1)
+                    item.quality -= 2;
                 else
-                    items[0].quality = 0;
+                    item.quality = 0;
             } else {
-                items[0].quality -= 1;
-                items[0].sellIn -= 1;
+                item.quality -= 1;
+                item.sellIn -= 1;
             }
-        } else if (items[0].name == "Aged Brie") {
-            if (items[0].quality < 50)
-                items[0].quality += 1;
-            if (items[0].sellIn > 0)
-                items[0].sellIn -= 1;
-        } else if (items[0].name == "Sulfuras"){
-            if (items[0].sellIn > 0)
-            items[0].sellIn -= 1;
+        } else if (item.name == "Aged Brie") {
+            if (item.quality < 50)
+                item.quality += 1;
+            if (item.sellIn > 0)
+                item.sellIn -= 1;
+        } else if (item.name == "Sulfuras"){
+            if (item.sellIn > 0)
+            item.sellIn -= 1;
 
         }
         else {
-            if(items[0].sellIn>10){
-                items[0].sellIn -= 1;
-                items[0].quality +=1;
+            if(item.sellIn>10){
+                item.sellIn -= 1;
+                item.quality +=1;
             }
-            else if(items[0].sellIn>5){
-                items[0].sellIn -= 1;
-                items[0].quality +=2;
+            else if(item.sellIn>5){
+                item.sellIn -= 1;
+                item.quality +=2;
             }
-            else if(items[0].sellIn>1){
-                items[0].sellIn -= 1;
-                items[0].quality +=3;
+            else if(item.sellIn>1){
+                item.sellIn -= 1;
+                item.quality +=3;
             }
             else {
-                items[0].sellIn -= 1;
-                items[0].quality = 0;
+                item.sellIn -= 1;
+                item.quality = 0;
             }
         }
     }
