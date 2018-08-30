@@ -11,7 +11,7 @@ import org.junit.runner.RunWith;
 public class GildedRoseTest {
 
     @Test
-    @Parameters({"10, 8","7, 5"})
+    @Parameters({"10, 8","7, 5"," 1, 0"})
     public void When_ExpiredNormalItemTicks_Expect_QualityDecreasesByTwo(int quality,  int expectedQuality) {
         Item[] items = new Item[] { new Item("normal", 0, quality) };
         GildedRose app = new GildedRose(items);
