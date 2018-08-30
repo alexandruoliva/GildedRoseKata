@@ -38,6 +38,10 @@ class GildedRose {
                 items[0].sellIn -= 1;
                 items[0].quality +=2;
             }
+            else {
+                items[0].sellIn -= 1;
+                items[0].quality +=3;
+            }
         }
     }
 
