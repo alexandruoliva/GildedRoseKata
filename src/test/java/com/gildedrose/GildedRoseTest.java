@@ -116,4 +116,15 @@ public class GildedRoseTest {
         assertEquals(exptectedSellIn, app.items[0].sellIn);
     }
 
+    @Test
+    public void When_InventoryContainingCheeseAndSulfurasTicks_Expect_QualityAndSellInUpdateCorrectly() {
+        Item[] items = new Item[] { new Item("Aged Brie", 4,3 ),
+                new Item("Sulfuras", 20,30) };
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertEquals(4, app.items[0].quality);
+        assertEquals(30, app.items[1].quality);
+        assertEquals(3, app.items[0].sellIn);
+        assertEquals(19, app.items[1].sellIn);
+    }
 }
