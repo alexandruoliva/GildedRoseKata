@@ -58,12 +58,13 @@ public class GildedRoseTest {
     }
 
     @Test
-    public void When_VeryHighQualityCheeseTicks_Expect_QualityRemainsTheSame_AndSellInDeacreasesByOne() {
-        Item[] items = new Item[] { new Item("Aged Brie", 5, 50) };
+    @Parameters({"5", "0"})
+    public void When_VeryHighQualityCheeseTicks_Expect_QualityRemainsTheSame_AndSellInDeacreasesByOne(int sellIn) {
+        Item[] items = new Item[] { new Item("Aged Brie", sellIn, 50) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         assertEquals(50, app.items[0].quality);
-        assertEquals(4, app.items[0].sellIn);
+        assertEquals(sellIn, app.items[0].sellIn);
     }
 
 }
