@@ -7,11 +7,12 @@ import org.junit.Test;
 public class GildedRoseTest {
 
     @Test
-    public void foo() {
-        Item[] items = new Item[] { new Item("foo", 0, 0) };
+    public void When_NormalItemTicks_Expect_QualityAndSellInDecreaseByOne() {
+        Item[] items = new Item[] { new Item("normal", 5, 10) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
-        assertEquals("fixme", app.items[0].name);
+        assertEquals(9, app.items[0].quality);
+        assertEquals(4, app.items[0].sellIn);
     }
 
 }
