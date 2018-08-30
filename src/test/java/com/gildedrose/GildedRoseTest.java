@@ -48,4 +48,13 @@ public class GildedRoseTest {
         assertEquals(expectedSellIn, app.items[0].sellIn);
     }
 
+    @Test
+    public void When_ExpiredCheeseTicks_Expect_QualityIncreaseByOne_AndSellInRemainsZero() {
+        Item[] items = new Item[] { new Item("Aged Brie", 0, 10) };
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertEquals(11, app.items[0].quality);
+        assertEquals(0, app.items[0].sellIn);
+    }
+
 }
