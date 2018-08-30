@@ -2,25 +2,21 @@ package com.gildedrose;
 
 import static org.junit.Assert.*;
 
+import junitparams.JUnitParamsRunner;
+import junitparams.Parameters;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 
+@RunWith(JUnitParamsRunner.class)
 public class GildedRoseTest {
 
     @Test
-    public void When_NormalItemTicks_Expect_QualityAndSellInDecreaseByOne() {
-        Item[] items = new Item[] { new Item("normal", 5, 10) };
+    @Parameters({"10, 8","7, 5"})
+    public void When_ExpiredNormalItemTicks_Expect_QualityDecreasesByTwo(int quality,  int expectedQuality) {
+        Item[] items = new Item[] { new Item("normal", 0, quality) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
-        assertEquals(9, app.items[0].quality);
-        assertEquals(4, app.items[0].sellIn);
-    }
-
-    @Test
-    public void When_ExpiredNormalItemTicks_Expect_QualityDecreasesByTwo() {
-        Item[] items = new Item[] { new Item("normal", 0, 10) };
-        GildedRose app = new GildedRose(items);
-        app.updateQuality();
-        assertEquals(8, app.items[0].quality);
+        assertEquals(expectedQuality, app.items[0].quality);
         assertEquals(0, app.items[0].sellIn);
     }
 
@@ -31,6 +27,16 @@ public class GildedRoseTest {
         app.updateQuality();
         assertEquals(0, app.items[0].quality);
         assertEquals(0, app.items[0].sellIn);
+    }
+
+    @Test
+    @Parameters({"4, 6, 3, 5", "5, 10, 4, 9"})
+    public void When_NormalItemTicks_Expect_QualityAndSellInDecreaseByOne(int sellIn, int quality, int expectedSellIn, int expectedQuality) {
+        Item[] items = new Item[] { new Item("normal", sellIn, quality) };
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertEquals(expectedQuality, app.items[0].quality);
+        assertEquals(expectedSellIn, app.items[0].sellIn);
     }
 
 }
