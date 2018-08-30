@@ -38,5 +38,14 @@ public class GildedRoseTest {
         assertEquals(expectedQuality, app.items[0].quality);
         assertEquals(expectedSellIn, app.items[0].sellIn);
     }
+    @Test
+    @Parameters({"4, 6, 3, 7", "5, 10, 4, 11"})
+    public void When_CheeseTicks_Expect_QualityIncreaseByOne_AndSellInDecreaseByOne(int sellIn, int quality, int expectedSellIn, int expectedQuality) {
+        Item[] items = new Item[] { new Item("Aged Brie", sellIn, quality) };
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertEquals(expectedQuality, app.items[0].quality);
+        assertEquals(expectedSellIn, app.items[0].sellIn);
+    }
 
 }
