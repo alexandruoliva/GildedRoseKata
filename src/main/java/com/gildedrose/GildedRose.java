@@ -22,8 +22,6 @@ class GildedRose {
         }
     }
 
-
-
     private void handleAgedBrie(Item item) {
         if (item.quality < 50)
             item.quality += 1;

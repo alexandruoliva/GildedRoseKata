@@ -4,11 +4,17 @@ import static org.junit.Assert.*;
 
 import junitparams.JUnitParamsRunner;
 import junitparams.Parameters;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
 @RunWith(JUnitParamsRunner.class)
 public class GildedRoseTest {
+
+    @Before
+    public void Setup() {
+
+    }
 
     @Test
     @Parameters({"10, 8","7, 5"," 1, 0"})
