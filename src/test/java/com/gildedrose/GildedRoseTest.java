@@ -67,4 +67,14 @@ public class GildedRoseTest {
         assertEquals(exptectedSellIn, app.items[0].sellIn);
     }
 
+    @Test
+    @Parameters({"5, 4", "0, 0"})
+    public void When_SulfurasTicks_Expect_QualityRemainsTheSame_AndSellInDeacreasesByOne(int sellIn, int exptectedSellIn) {
+        Item[] items = new Item[] { new Item("Sulfuras", sellIn, 100) };
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertEquals(100, app.items[0].quality);
+        assertEquals(exptectedSellIn, app.items[0].sellIn);
+    }
+    
 }
