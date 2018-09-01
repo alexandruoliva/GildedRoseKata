@@ -47,7 +47,7 @@ public class GildedRoseTest {
     @Test
     @Parameters({"4, 6, 3, 7", "5, 10, 4, 11"})
     public void When_CheeseTicks_Expect_QualityIncreaseByOne_AndSellInDecreaseByOne(int sellIn, int quality, int expectedSellIn, int expectedQuality) {
-        Item[] items = new Item[] { new Item("Aged Brie", sellIn, quality) };
+        Item[] items = new Item[] { new AgedBrie( sellIn, quality) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         assertEquals(expectedQuality, app.items[0].quality);
@@ -56,7 +56,7 @@ public class GildedRoseTest {
 
     @Test
     public void When_ExpiredCheeseTicks_Expect_QualityIncreaseByOne_AndSellInRemainsZero() {
-        Item[] items = new Item[] { new Item("Aged Brie", 0, 10) };
+        Item[] items = new Item[] { new AgedBrie( 0, 10) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         assertEquals(11, app.items[0].quality);
@@ -66,7 +66,7 @@ public class GildedRoseTest {
     @Test
     @Parameters({"5, 4", "0, 0"})
     public void When_VeryHighQualityCheeseTicks_Expect_QualityRemainsTheSame_AndSellInDeacreasesByOne(int sellIn, int exptectedSellIn) {
-        Item[] items = new Item[] { new Item("Aged Brie", sellIn, 50) };
+        Item[] items = new Item[] { new AgedBrie( sellIn, 50) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         assertEquals(50, app.items[0].quality);
@@ -124,7 +124,7 @@ public class GildedRoseTest {
 
     @Test
     public void When_InventoryContainingCheeseAndSulfurasTicks_Expect_QualityAndSellInUpdateCorrectly() {
-        Item[] items = new Item[] { new Item("Aged Brie", 4,3 ),
+        Item[] items = new Item[] { new AgedBrie( 4,3 ),
                 new Item("Sulfuras", 20,30) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
