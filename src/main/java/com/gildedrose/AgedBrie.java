@@ -5,7 +5,7 @@ public class AgedBrie extends Item {
 		super("Aged Brie",sellIn, quality);
 	}
 	
-	void handleAgedBrie() {
+	void handle() {
         if (this.quality < 50)
             this.quality += 1;
         if (this.sellIn > 0)

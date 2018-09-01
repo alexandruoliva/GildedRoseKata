@@ -6,7 +6,7 @@ public class BackstagePasses extends Item{
 		super("Backstage Passes", sellIn, quality);
 	}
 	
-	 	public void handleBackstagePasses() {
+	 	public void handle() {
 	        if (this.sellIn > 10) {
 	            this.quality += 1;
 	        } else if (this.sellIn > 5) {

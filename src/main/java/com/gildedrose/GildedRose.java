@@ -11,13 +11,13 @@ class GildedRose {
 
         for (Item item : items) {
             if (item.name == "normal") {
-                ((NormalItem)item).handleNormalItem();
+                ((NormalItem)item).handle();
             } else if (item.name == "Aged Brie") {
-                ((AgedBrie)item).handleAgedBrie();
+                ((AgedBrie)item).handle();
             } else if (item.name == "Sulfuras") {
-            	((Sulfuras)item).handleSulfuras();
+            	((Sulfuras)item).handle();
             } else {
-            	((BackstagePasses)item).handleBackstagePasses();
+            	((BackstagePasses)item).handle();
             }
         }
     }
