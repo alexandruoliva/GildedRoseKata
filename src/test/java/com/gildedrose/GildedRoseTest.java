@@ -86,7 +86,7 @@ public class GildedRoseTest {
     @Test
     @Parameters({"11, 10, 4, 5"})
     public void When_BackstagePassesTicks_AndSellInOver10Days_Expect_QualityIncreasesByOne_AndSellInDecreasesByOne(int sellIn, int exptectedSellIn, int quality ,int qualityExpected) {
-        Item[] items = new Item[] { new Item("Backstage Passes", sellIn, quality) };
+        Item[] items = new Item[] { new BackstagePasses( sellIn, quality) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         assertEquals(qualityExpected, app.items[0].quality);
@@ -95,7 +95,7 @@ public class GildedRoseTest {
     @Test
     @Parameters({"7, 6, 4, 6"})
     public void When_BackstagePassesTicks_AndSellInBetween5And10Days_Expect_QualityIncreasesByTwo_AndSellInDecreasesByOne(int sellIn, int exptectedSellIn, int quality ,int qualityExpected) {
-        Item[] items = new Item[] { new Item("Backstage Passes", sellIn, quality) };
+        Item[] items = new Item[] { new BackstagePasses( sellIn, quality) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         assertEquals(qualityExpected, app.items[0].quality);
@@ -105,7 +105,7 @@ public class GildedRoseTest {
     @Test
     @Parameters({"4, 3, 4, 7"})
     public void When_BackstagePassesTicks_AndSellIsUnder5Days_Expect_QualityIncreasesByThree_AndSellInDecreasesByOne(int sellIn, int exptectedSellIn, int quality ,int qualityExpected) {
-        Item[] items = new Item[] { new Item("Backstage Passes", sellIn, quality) };
+        Item[] items = new Item[] { new BackstagePasses( sellIn, quality) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         assertEquals(qualityExpected, app.items[0].quality);
@@ -115,7 +115,7 @@ public class GildedRoseTest {
     @Test
     @Parameters({"1, 0, 4, 0"})
     public void When_BackstagePassesTicks_AndSellIs0_Expect_QualityDropsTo0_AndSellRemains0(int sellIn, int exptectedSellIn, int quality ,int qualityExpected) {
-        Item[] items = new Item[] { new Item("Backstage Passes", sellIn, quality) };
+        Item[] items = new Item[] { new BackstagePasses( sellIn, quality) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         assertEquals(qualityExpected, app.items[0].quality);
