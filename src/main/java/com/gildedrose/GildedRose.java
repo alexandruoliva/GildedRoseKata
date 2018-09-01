@@ -15,7 +15,7 @@ class GildedRose {
             } else if (item.name == "Aged Brie") {
                 ((AgedBrie)item).handleAgedBrie();
             } else if (item.name == "Sulfuras") {
-                handleSulfuras(item);
+            	((Sulfuras)item).handleSulfuras();
             } else {
                 handleBackstagePasses(item);
             }
@@ -24,10 +24,7 @@ class GildedRose {
 
     
 
-    private void handleSulfuras(Item item) {
-        if (item.sellIn > 0)
-            item.sellIn -= 1;
-    }
+    
 
     private void handleBackstagePasses(Item item) {
         if (item.sellIn > 10) {
