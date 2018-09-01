@@ -5,7 +5,7 @@ public class NormalItem extends Item{
         super("normal", sellIn, quality);
     }
 
-    public void handle() {
+    public void handleNormalItem() {
         if (this.sellIn == 0) {
             if (this.quality > 1)
                 this.quality -= 2;
