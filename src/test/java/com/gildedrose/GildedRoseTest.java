@@ -150,12 +150,22 @@ public class GildedRoseTest {
 
 	@Test
 	@Parameters({ "9,8,10, 9", "8,7,5, 4", "3,2, 4, 3" })
-	public void When_InventoryContainingConjuredTicksNormal_Expect_QualityAndDecreseBy1(int sellIn, int expectedSellIn,
+	public void When_InventoryContainingConjuredTicksNormal_Expect_QualityAndSellInDecreseBy1(int sellIn, int expectedSellIn,
 			int quality, int expectedQuality) {
-		Item[] items = new Item[] { new Item("Conjured", sellIn, quality) };
+		Item[] items = new Item[] { new Conjured( sellIn, quality) };
 		GildedRose app = new GildedRose(items);
 		app.updateQuality();
 		assertEquals(expectedQuality, app.items[0].quality);
 		assertEquals(expectedSellIn, app.items[0].sellIn);
+	}
+	@Test
+	@Parameters({ "8,4", "4,0", "3,0" })
+	public void When_InventoryContainingConjuredExpired_Expect_QualityDecreasesBy4(
+			int quality, int expectedQuality) {
+		Item[] items = new Item[] { new Conjured( 0,quality) };
+		GildedRose app = new GildedRose(items);
+		app.updateQuality();
+		assertEquals(expectedQuality, app.items[0].quality);
+		assertEquals(0, app.items[0].sellIn);
 	}
 }

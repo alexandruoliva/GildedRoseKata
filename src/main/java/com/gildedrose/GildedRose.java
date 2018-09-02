@@ -19,8 +19,7 @@ class GildedRose {
             } else if(item.name== "Backstage Passes"){
             	((BackstagePasses)item).handle();
             } else if(item.name=="Conjured") {
-            	item.quality -=1;
-            	item.sellIn -=1;
+            	((Conjured)item).handle();
             }
         }
     }
