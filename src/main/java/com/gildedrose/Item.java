@@ -1,6 +1,6 @@
 package com.gildedrose;
 
-public abstract class Item {
+public  class Item {
 
 	public String name;
 
@@ -14,7 +14,7 @@ public abstract class Item {
 		this.quality = quality;
 	}
 
-	abstract void handle();
+//	abstract void handle();
 
 	@Override
 	public String toString() {
